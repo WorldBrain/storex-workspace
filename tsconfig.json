@@ -1,0 +1,30 @@
+{
+    "version": "2.5",
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "noImplicitAny": false,
+        "removeComments": true,
+        "lib": ["es2017", "dom"],
+        "noLib": false,
+        "downlevelIteration": true,
+        "preserveConstEnums": true,
+        "declaration": true,
+        "sourceMap": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "typeRoots": ["./node_modules/@types"],
+        "baseUrl": ".",
+            "outDir": "dist",
+            "rootDir": ".",
+            "paths": {
+                "storex/lib/*": ["packages/storex/ts/*"],
+                "storex": ["packages/storex/ts"],
+                "memex-stemmer/lib/*": ["packages/memex-stemmer/ts/*"],
+                "memex-stemmer": ["packages/memex-stemmer/ts"],
+                "user-logic": ["packages/user-logic/ts"],
+                "user-logic/lib/*": ["packages/user-logic/ts/*"],
+            }
+    },
+    "filesGlob": ["./packages/*/ts/**/*.ts", "!./node_modules/**/*.ts"]
+}
