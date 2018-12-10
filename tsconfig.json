@@ -14,17 +14,17 @@
         "sourceMap": true,
         "suppressImplicitAnyIndexErrors": true,
         "typeRoots": ["./node_modules/@types"],
-        "baseUrl": ".",
-            "outDir": "dist",
-            "rootDir": ".",
-            "paths": {
-                "storex/lib/*": ["packages/storex/ts/*"],
-                "storex": ["packages/storex/ts"],
-                "memex-stemmer/lib/*": ["packages/memex-stemmer/ts/*"],
-                "memex-stemmer": ["packages/memex-stemmer/ts"],
-                "user-logic": ["packages/user-logic/ts"],
-                "user-logic/lib/*": ["packages/user-logic/ts/*"],
-            }
+        "baseUrl": "./packages",
+        "outDir": "dist",
+        "rootDir": "./",
+        "paths": {
+            "storex/lib/*": ["storex/ts/*"],
+            "storex": ["storex/ts"],
+            "memex-stemmer/lib/*": ["memex-stemmer/ts/*"],
+            "memex-stemmer": ["memex-stemmer/ts"],
+            "user-logic": ["user-logic/ts"],
+            "user-logic/lib/*": ["user-logic/ts/*"],
+        }
     },
     "filesGlob": ["./packages/*/ts/**/*.ts", "!./node_modules/**/*.ts"]
 }
