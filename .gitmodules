@@ -4,15 +4,32 @@
 [submodule "packages/storex"]
 	path = packages/@worldbrain/storex
 	url = git@github.com:WorldBrain/storex.git
+	branch = staging
 [submodule "packages/storex-backend-dexie"]
 	path = packages/@worldbrain/storex-backend-dexie
 	url = git@github.com:WorldBrain/storex-backend-dexie.git
+	branch = staging
 [submodule "packages/storex-backend-sequelize"]
 	path = packages/@worldbrain/storex-backend-sequelize
 	url = git@github.com:WorldBrain/storex-backend-sequelize.git
+	branch = staging
 [submodule "packages/storex-schema-migrations"]
 	path = packages/@worldbrain/storex-schema-migrations
 	url = git@github.com:WorldBrain/storex-schema-migrations.git
+	branch = staging
 [submodule "packages/memex-stemmer"]
 	path = packages/@worldbrain/memex-stemmer
 	url = git@github.com:WorldBrain/memex-stemmer.git
+	branch = staging
+[submodule "packages/@worldbrain/storex-sync"]
+	path = packages/@worldbrain/storex-sync
+	url = git@github.com:WorldBrain/storex-sync.git
+	branch = staging
+[submodule "packages/@worldbrain/storex-pattern-modules"]
+	path = packages/@worldbrain/storex-pattern-modules
+	url = git@github.com:WorldBrain/storex-pattern-modules.git
+	branch = staging
+[submodule "packages/@worldbrain/storex-visualize-graphviz"]
+	path = packages/@worldbrain/storex-visualize-graphviz
+	url = git@github.com:WorldBrain/storex-visualize-graphviz.git
+	branch = staging

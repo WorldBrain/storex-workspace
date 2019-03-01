@@ -20,12 +20,22 @@
         "paths": {
             "@worldbrain/storex/lib/*": ["@worldbrain/storex/ts/*"],
             "@worldbrain/storex": ["@worldbrain/storex/ts"],
+
             "@worldbrain/storex-backend-dexie/lib/*": ["@worldbrain/storex-backend-dexie/ts/*"],
             "@worldbrain/storex-backend-dexie": ["@worldbrain/storex-backend-dexie/ts"],
+            
             "@worldbrain/storex-backend-sequelize/lib/*": ["@worldbrain/storex-backend-sequelize/ts/*"],
             "@worldbrain/storex-backend-sequelize": ["@worldbrain/storex-backend-sequelize/ts"],
+
+            "@worldbrain/storex-pattern-modules/lib/*": ["@worldbrain/storex-pattern-modules/ts/*"],
+            "@worldbrain/storex-pattern-modules": ["@worldbrain/storex-pattern-modules/ts"],
+
+            "@worldbrain/storex-sync/lib/*": ["@worldbrain/storex-sync/ts/*"],
+            "@worldbrain/storex-sync": ["@worldbrain/storex-sync/ts"],
+
             "@worldbrain/memex-stemmer/lib/*": ["@worldbrain/memex-stemmer/ts/*"],
             "@worldbrain/memex-stemmer": ["@worldbrain/memex-stemmer/ts"],
+            
             "user-logic": ["user-logic/ts"],
             "user-logic/lib/*": ["user-logic/ts/*"],
         }
