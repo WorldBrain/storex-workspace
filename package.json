@@ -1,6 +1,8 @@
 {
   "private": true,
   "scripts": {
+    "check-unreleased": "git submodule --quiet foreach 'if [ `git diff origin/develop origin/master | wc -l` -ne 0 ]; then echo `basename $PWD` has unreleased changes in develop; fi'",
+    "update-packages": "git submodule update --remote",
     "test": "mocha --require ts-node/register -r tsconfig-paths/register 'packages/@worldbrain/*/ts/**/*.test.ts' 'packages/*/ts/**/*.test.ts'",
     "test:watch": "mocha -r source-map-support/register -r ts-node/register -r tsconfig-paths/register 'packages/@worldbrain/*/ts/**/*.test.ts' 'packages/*/ts/**/*.test.ts' --watch --watch-extensions ts"
   },
