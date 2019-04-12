@@ -4,8 +4,7 @@ Lerna workspace to work on all officially supported Storex packages together
 
 ```
 $ git clone --recursive git@github.com:WorldBrain/storex-workspace.git
-$ yarn
-$ yarn lerna bootstrap
+$ yarn bootstrap
 ```
 
 # Testing
@@ -13,7 +12,9 @@ $ yarn lerna bootstrap
 ```
 $ yarn test --parallel
 or
-$ yarn test # get prettier output by not running in parallel
+$ yarn test
+or
+$ yarn test:watch
 ```
 
 # Recompiling everything
