@@ -36,9 +36,12 @@
 [submodule "packages/@worldbrain/storex-graphql-client"]
 	path = packages/@worldbrain/storex-graphql-client
 	url = git@github.com:WorldBrain/storex-graphql-client
+	branch = develop
 [submodule "packages/@worldbrain/storex-graphql-schema"]
 	path = packages/@worldbrain/storex-graphql-schema
 	url = git@github.com:WorldBrain/storex-graphql-schema
+	branch = develop
 [submodule "packages/@worldbrain/storex-data-tools"]
 	path = packages/@worldbrain/storex-data-tools
 	url = git@github.com:WorldBrain/storex-data-tools
+	branch = develop
