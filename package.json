@@ -3,14 +3,56 @@
   "scripts": {
     "check-unreleased": "git submodule --quiet foreach 'if [ `git diff origin/develop origin/master | wc -l` -ne 0 ]; then echo `basename $PWD` has unreleased changes in develop; fi'",
     "update-packages": "git submodule update --remote",
+    "lerna": "lerna",
     "test": "mocha --require ts-node/register -r tsconfig-paths/register 'packages/@worldbrain/*/ts/**/*.test.ts' 'packages/*/ts/**/*.test.ts'",
     "test:watch": "mocha -r source-map-support/register -r ts-node/register -r tsconfig-paths/register 'packages/@worldbrain/*/ts/**/*.test.ts' 'packages/*/ts/**/*.test.ts' --watch --watch-extensions ts"
   },
-  "workspaces": [
-    "packages/*"
-  ],
   "devDependencies": {
+    "@types/chai": "^4.0.6",
+    "@types/events": "^1.2.0",
+    "@types/express": "^4.16.1",
+    "@types/graphql": "^14.0.0",
+    "@types/mocha": "^2.2.44",
+    "@types/node": "^10.12.11",
+    "@worldbrain/memex-stemmer": "file:../memex-stemmer",
+    "@worldbrain/storex": "^0.3.5",
+    "@worldbrain/storex-backend-dexie": "file:../storex-backend-dexie",
+    "@worldbrain/storex-graphql-client": "file:../storex-graphql-client",
+    "@worldbrain/storex-graphql-schema": "file:../storex-graphql-schema",
+    "@worldbrain/storex-pattern-modules": "file:../storex-pattern-modules",
+    "apollo-server-express": "^2.4.8",
+    "chai": "^4.1.2",
+    "expect": "^23.5.0",
+    "express": "^4.16.4",
+    "fake-fs": "^0.5.0",
+    "fake-indexeddb": "^2.0.4",
+    "graphql": "^14.0.0",
+    "graphql-errors": "^2.1.0",
+    "lerna": "^3.13.2",
+    "memory-fs": "^0.4.1",
+    "mocha": "^4.0.1",
+    "nyc": "^13.3.0",
+    "sinon": "^4.1.2",
+    "source-map-support": "^0.5.9",
+    "sqlite3": "^4.0.4",
+    "supertest": "^4.0.2",
+    "tmp": "^0.1.0",
     "ts-node": "^7.0.1",
-    "tsconfig-paths": "^3.7.0"
+    "typescript": "^3.0.1"
+  },
+  "name": "storex-workspace",
+  "dependencies": {
+    "@worldbrain/memex-stemmer": "file:packages/@worldbrain/memex-stemmer",
+    "@worldbrain/storex": "file:packages/@worldbrain/storex",
+    "@worldbrain/storex-backend-dexie": "file:packages/@worldbrain/storex-backend-dexie",
+    "@worldbrain/storex-backend-sequelize": "file:packages/@worldbrain/storex-backend-sequelize",
+    "@worldbrain/storex-data-tools": "file:packages/@worldbrain/storex-data-tools",
+    "@worldbrain/storex-graphql-client": "file:packages/@worldbrain/storex-graphql-client",
+    "@worldbrain/storex-graphql-schema": "file:packages/@worldbrain/storex-graphql-schema",
+    "@worldbrain/storex-pattern-modules": "file:packages/@worldbrain/storex-pattern-modules",
+    "@worldbrain/storex-schema-migrations": "file:packages/@worldbrain/storex-schema-migrations",
+    "@worldbrain/storex-sync": "file:packages/@worldbrain/storex-sync",
+    "@worldbrain/storex-visualize-graphviz": "file:packages/@worldbrain/storex-visualize-graphviz",
+    "user-logic": "file:packages/user-logic"
   }
 }
