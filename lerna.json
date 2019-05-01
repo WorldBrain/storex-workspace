@@ -16,6 +16,7 @@
     },
     "packages": [
         "packages/*",
-        "packages/@worldbrain/*"
+        "packages/@worldbrain/*",
+        "apps/*"
     ]
 }
