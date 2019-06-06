@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "bootstrap": "yarn && yarn lerna bootstrap",
-    "create-package": "bash scripts/create-module.sh",
+    "create-package": "bash scripts/create-package.sh",
     "check-unreleased": "git submodule --quiet foreach 'if [ `git diff origin/develop origin/master | wc -l` -ne 0 ]; then echo `basename $PWD` has unreleased changes in develop; fi'",
     "show-unreleased-changes": "cd packages/$package && git diff master develop",
     "update-packages": "git submodule update --remote",
