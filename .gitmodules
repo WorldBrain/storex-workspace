@@ -9,10 +9,6 @@
 	path = packages/@worldbrain/storex-backend-dexie
 	url = git@github.com:WorldBrain/storex-backend-dexie.git
 	branch = develop
-[submodule "packages/storex-backend-sequelize"]
-	path = packages/@worldbrain/storex-backend-sequelize
-	url = git@github.com:WorldBrain/storex-backend-sequelize.git
-	branch = develop
 [submodule "packages/storex-schema-migrations"]
 	path = packages/@worldbrain/storex-schema-migrations
 	url = git@github.com:WorldBrain/storex-schema-migrations.git
