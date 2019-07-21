@@ -1,14 +1,16 @@
+import { CollectionDefinitionMap } from '@worldbrain/storex/lib/types'
+
 export interface StorexClientAPI_v0 {
     registerApp : (name : string) => Promise<{ success : false, errorCode : number, errorText : string } | { success : true, accessToken : string }>
     identifyApp : (name : string, options : { accessToken : string }) => Promise<{}>
-    unidentifyApp : () => Promise<void>
+    // unidentifyApp : () => Promise<void>
     
-    executeOperation : () => Promise<{ result : any }>
+    executeOperation : (options : { operation: any[] }) => Promise<{ result : any }>
     
     // requestPriviliges : (options : {  }) => Promise<{}>
     // listPrivileges : () => Promise<{}>
     
-    // updateCollectionRegistry : () => Promise<{}>
+    updateCollectionRegistry : (options : { collectionDefinitions : CollectionDefinitionMap }) => Promise<{ success: true }>
     // describeCollectionRegistry : () => Promise<{}> // In terms of RDF
     // updateAccessRules : () => Promise<{}>
 

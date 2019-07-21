@@ -1,6 +1,7 @@
 import expect from 'expect';
 import { makeAPITestFactory } from "./api.tests";
 import { RegisterAppError_v0, IdentifyAppError_v0 } from '../public-api';
+import { TEST_COLLECTION_DEFINITIONS } from './data';
 
 describe('API tests', () => {
     const it = makeAPITestFactory()
@@ -77,7 +78,31 @@ describe('API tests', () => {
     })
 
     describe('Collection registration and data operations', () => {
-        it('should be able to register collections and execute data operations')
+        it('should be able to register collections and execute data operations', async ({ application }) => {
+            const api = await application.api()
+            const registrationResult = await api.registerApp('contacts')
+            expect(registrationResult).toEqual({ success: true, accessToken: 'access' })
+            
+            await api.updateCollectionRegistry({ collectionDefinitions: {
+                user: TEST_COLLECTION_DEFINITIONS.simpleUser({ fields: new Set<'email'>(['email']) })
+            } })
+
+            const { result: createResult } = await api.executeOperation({ operation: ['createObject', 'user', {
+                email: 'john@doe.com',
+            }] })
+            expect(createResult).toEqual({
+                id: (expect as any).anything(),
+                email: 'john@doe.com',
+            })
+
+            const { result: fieldResult } = await api.executeOperation({ operation: ['createObject', 'user', {
+                email: 'john@doe.com',
+            }] })
+            expect(fieldResult).toEqual([{
+                id: createResult.id,
+                email: 'john@doe.com',
+            }])
+        })
 
         it('should by default not allow fetching data from other apps')
 
