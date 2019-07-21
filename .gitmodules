@@ -53,3 +53,7 @@
 	path = packages/@worldbrain/storex-backend-typeorm
 	url = git@github.com:WorldBrain/storex-backend-typeorm.git
         branch = master
+[submodule "packages/simple-signalling"]
+	path = packages/simple-signalling
+	url = git@github.com:WorldBrain/simple-signalling.git
+	branch = master
