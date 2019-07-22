@@ -28,6 +28,7 @@
     "@types/expect": "^1.20.4",
     "@types/mocha": "^2.2.44",
     "@types/node": "^10.12.11",
+    "@worldbrain/storex-backend-dexie": "^0.2.3",
     "chai": "^4.1.2",
     "expect": "^23.5.0",
     "fake-fs": "^0.5.0",
