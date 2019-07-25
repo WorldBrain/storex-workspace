@@ -1,4 +1,5 @@
 import { CollectionDefinitionMap } from '@worldbrain/storex/lib/types'
+import { AppSchema } from './types/apps';
 
 export interface StorexClientAPI_v0 {
     registerApp(options : { name : string }) : Promise<RegisterAppResult_v0>
@@ -10,7 +11,7 @@ export interface StorexClientAPI_v0 {
     // requestPriviliges(options : {  }) : Promise<{}>
     // listPrivileges() : Promise<{}>
     
-    updateSchema(options : UpdateCollectionRegistryOptions_v0) : Promise<{ success: true }>
+    updateSchema(options : UpdateSchemaOptions_v0) : Promise<UpdateSchemaResult_v0>
     // describeSchema() : Promise<{}> // In terms of RDF
     // updateAccessRules() : Promise<{}>
 
@@ -46,6 +47,12 @@ export enum IdentifyAppError_v0 {
     DUPLICATE_IDENTFICATION = 1
 }
 
-export interface UpdateCollectionRegistryOptions_v0 {
-    collectionDefinitions : CollectionDefinitionMap
+export interface UpdateSchemaOptions_v0 {
+    schema : AppSchema
+}
+
+export type UpdateSchemaResult_v0 = { success: true } | { success: false, errorCode: UpdateSchemaError_v0 }
+
+export enum UpdateSchemaError_v0 {
+    NOT_ALLOWED = 0
 }

@@ -85,9 +85,9 @@ describe('API tests', () => {
                 accessToken: (registrationResult as { accessToken: string }).accessToken
             })
             
-            await api.updateSchema({ collectionDefinitions: {
-                user: TEST_COLLECTION_DEFINITIONS.simpleUser({ fields: new Set<'email'>(['email']) })
-            } })
+            await api.updateSchema({ schema: { collectionDefinitions: {
+                'user': TEST_COLLECTION_DEFINITIONS.simpleUser({ fields: new Set<'email'>(['email']) })
+            } } })
 
             const { result: createResult } = await api.executeOperation({ operation: ['createObject', 'user', {
                 email: 'john@doe.com',
@@ -97,9 +97,7 @@ describe('API tests', () => {
                 email: 'john@doe.com',
             })
 
-            const { result: fieldResult } = await api.executeOperation({ operation: ['createObject', 'user', {
-                email: 'john@doe.com',
-            }] })
+            const { result: fieldResult } = await api.executeOperation({ operation: ['findObjects', 'user', {}] })
             expect(fieldResult).toEqual([{
                 id: createResult.id,
                 email: 'john@doe.com',
