@@ -4,43 +4,43 @@
 [submodule "packages/storex"]
 	path = packages/@worldbrain/storex
 	url = git@github.com:WorldBrain/storex.git
-	branch = develop
+	# branch = develop
 [submodule "packages/storex-backend-dexie"]
 	path = packages/@worldbrain/storex-backend-dexie
 	url = git@github.com:WorldBrain/storex-backend-dexie.git
-	branch = develop
+	# branch = develop
 [submodule "packages/storex-schema-migrations"]
 	path = packages/@worldbrain/storex-schema-migrations
 	url = git@github.com:WorldBrain/storex-schema-migrations.git
-	branch = develop
+	# branch = develop
 [submodule "packages/memex-stemmer"]
 	path = packages/@worldbrain/memex-stemmer
 	url = git@github.com:WorldBrain/memex-stemmer.git
-	branch = develop
+	# branch = develop
 [submodule "packages/@worldbrain/storex-sync"]
 	path = packages/@worldbrain/storex-sync
 	url = git@github.com:WorldBrain/storex-sync.git
-	branch = develop
+	# branch = develop
 [submodule "packages/@worldbrain/storex-pattern-modules"]
 	path = packages/@worldbrain/storex-pattern-modules
 	url = git@github.com:WorldBrain/storex-pattern-modules.git
-	branch = develop
+	# branch = develop
 [submodule "packages/@worldbrain/storex-visualize-graphviz"]
 	path = packages/@worldbrain/storex-visualize-graphviz
 	url = git@github.com:WorldBrain/storex-visualize-graphviz.git
-	branch = develop
+	# branch = develop
 [submodule "packages/@worldbrain/storex-graphql-client"]
 	path = packages/@worldbrain/storex-graphql-client
 	url = git@github.com:WorldBrain/storex-graphql-client
-	branch = develop
+	# branch = develop
 [submodule "packages/@worldbrain/storex-graphql-schema"]
 	path = packages/@worldbrain/storex-graphql-schema
 	url = git@github.com:WorldBrain/storex-graphql-schema
-	branch = develop
+	# branch = develop
 [submodule "packages/@worldbrain/storex-data-tools"]
 	path = packages/@worldbrain/storex-data-tools
 	url = git@github.com:WorldBrain/storex-data-tools
-	branch = develop
+	# branch = develop
 [submodule "packages/@worldbrain/storex-backend-firestore"]
 	path = packages/@worldbrain/storex-backend-firestore
 	url = git@github.com:WorldBrain/storex-backend-firestore
