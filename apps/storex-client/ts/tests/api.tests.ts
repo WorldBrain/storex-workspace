@@ -3,6 +3,7 @@ import inMemory from '@worldbrain/storex-backend-dexie/lib/in-memory'
 import { Application } from "../application";
 import { DevelopmentAccessTokenManager } from "../access-tokens";
 import { sequentialTokenGenerator } from "../access-tokens.tests";
+import { StorageBackend } from '@worldbrain/storex';
 
 export function makeAPITestFactory() {
     function factory(description : string, test? : (setup : { application : Application }) => void | Promise<void>) {
@@ -12,6 +13,9 @@ export function makeAPITestFactory() {
             const application = new Application({
                 accessTokenManager: new DevelopmentAccessTokenManager({ tokenGenerator: sequentialTokenGenerator() }),
                 createStorageBackend,
+                closeStorageBackend: async (storageBackend : StorageBackend) => {
+                    await (storageBackend as DexieStorageBackend).dexieInstance.close()
+                }
             })
             await test({ application })
         }))

@@ -5,10 +5,15 @@ import { AccessTokenManager } from "./access-tokens";
 import { Storage } from "./storage/types";
 import { createStorage } from "./storage";
 
+export interface ApplicationOptions {
+    accessTokenManager : AccessTokenManager
+    createStorageBackend : () => StorageBackend
+    closeStorageBackend : (storageBackend : StorageBackend) => Promise<void>
+}
 export class Application {
     private storage : Promise<Storage>
 
-    constructor(private options : { accessTokenManager : AccessTokenManager, createStorageBackend : () => StorageBackend }) {
+    constructor(private options : ApplicationOptions) {
         this.storage = createStorage({ createBackend: options.createStorageBackend })
     }
 
@@ -21,7 +26,9 @@ export class Application {
             accessTokenManager: this.options.accessTokenManager,
             getStorage: () => this.storage,
             updateStorage: async () => {
-                const appSchemas = await (await this.storage).systemModules.apps.getAppSchemas()
+                const currentStorage = await this.storage
+                const appSchemas = await currentStorage.systemModules.apps.getAppSchemas()
+                await this.options.closeStorageBackend(currentStorage.manager.backend)
                 this.storage = createStorage({
                     createBackend: this.options.createStorageBackend,
                     appSchemas: appSchemas.map(appSchema => appSchema.schema)
