@@ -8,6 +8,7 @@ import { StorageBackend } from '@worldbrain/storex';
 export function makeAPITestFactory() {
     function factory(description : string, test? : (setup : { application : Application }) => void | Promise<void>) {
         it(description, test && (async () => {
+            global['navigator'] = { userAgent: 'memory' } // Dexie checks this even if it doesn't exist
             const idbImplementation = inMemory()
             const createStorageBackend = () => new DexieStorageBackend({ dbName: 'test', idbImplementation })
             const application = new Application({

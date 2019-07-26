@@ -88,18 +88,18 @@ describe('API tests', () => {
             await api.updateSchema({ schema: { collectionDefinitions: {
                 'user': TEST_COLLECTION_DEFINITIONS.simpleUser({ fields: new Set<'email'>(['email']) })
             } } })
-
+            
             const { result: createResult } = await api.executeOperation({ operation: ['createObject', 'user', {
                 email: 'john@doe.com',
             }] })
-            expect(createResult).toEqual({
+            expect(createResult).toEqual({ object: {
                 id: (expect as any).anything(),
                 email: 'john@doe.com',
-            })
+            } })
 
             const { result: fieldResult } = await api.executeOperation({ operation: ['findObjects', 'user', {}] })
             expect(fieldResult).toEqual([{
-                id: createResult.id,
+                id: createResult.object.id,
                 email: 'john@doe.com',
             }])
         })
