@@ -6,9 +6,9 @@ describe('Read access to virtual tables', () => {
 
     it('should allow different applications to register collections for read acces', async ({ application }) => {
         const apiOne = await application.api()
-        await apiOne.registerApp({ name: 'superContacts' })
+        await apiOne.registerApp({ name: 'superContacts', identify: true })
 
         const apiTwo = await application.api()
-        await apiTwo.registerApp({ name: 'awesomeContacts' })
+        await apiTwo.registerApp({ name: 'awesomeContacts', identify: true })
     })
 })
