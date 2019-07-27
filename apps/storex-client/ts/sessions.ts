@@ -9,8 +9,12 @@ export interface SessionOptions {
     getStorage : () => Promise<Storage>
     updateStorage : () => Promise<void>
 }
+interface IdentifiedApp {
+    id : number | string
+    identifier : string
+}
 export class Session implements api.StorexClientAPI_v0 {
-    private identifiedApp? : { identifier : string, id : number | string }
+    private identifiedApp? : IdentifiedApp
 
     constructor(private options : SessionOptions) {
     }
@@ -31,14 +35,14 @@ export class Session implements api.StorexClientAPI_v0 {
         const storage = await this.options.getStorage()
         const existingApp = await storage.systemModules.apps.getApp(options.name)
         if (!existingApp) {
-            return { success: false, errorCode: api.IdentifyAppError_v0.INVALID_ACCESS_TOKEN }
+            return { success: false, errorCode: api.IdentifyAppError_v0.INVALID_ACCESS_TOKEN, errorText: 'Invalid access token' }
         }
         const valid = await this.options.accessTokenManager.validateToken({ actualHash: existingApp.accessKeyHash, providedToken: options.accessToken })
         if (valid) {
             this.identifiedApp = { identifier: options.name, id: existingApp.id }
             return { success: true }
         } else {
-            return { success: false, errorCode: api.IdentifyAppError_v0.INVALID_ACCESS_TOKEN }
+            return { success: false, errorCode: api.IdentifyAppError_v0.INVALID_ACCESS_TOKEN, errorText: 'Invalid access token' }
         }
     }
 
@@ -48,7 +52,15 @@ export class Session implements api.StorexClientAPI_v0 {
 
     async updateSchema(options : { schema : AppSchema }) : Promise<api.UpdateSchemaResult_v0> {
         if (!this.identifiedApp) {
-            return { success: false, errorCode: api.UpdateSchemaError_v0.NOT_ALLOWED }
+            return {
+                success: false, errorCode: api.UpdateSchemaError_v0.NOT_ALLOWED,
+                errorText: `Could not update schema: app not identified`
+            }
+        }
+        
+        const checkResult = await checkAppSchema(options.schema, { identifiedApp: this.identifiedApp })
+        if (!checkResult.success) {
+            return checkResult
         }
 
         await (await this.options.getStorage()).systemModules.apps.updateSchema(
@@ -57,4 +69,31 @@ export class Session implements api.StorexClientAPI_v0 {
         await this.options.updateStorage()
         return { success: true }
     }
+}
+
+export async function checkAppSchema(schema : AppSchema, options : { identifiedApp : IdentifiedApp }) : Promise<api.UpdateSchemaResult_v0> {
+    for (const [collectionName] of Object.entries(schema.collectionDefinitions)) {
+        const collectionNameMatch = /^([a-zA-Z]+)(?:\:([a-zA-Z]+))?$/.exec(collectionName)
+        if (!collectionNameMatch) {
+            return {
+                success: false, errorCode: api.UpdateSchemaError_v0.BAD_REQUEST,
+                errorText: `Cannot create collection with invalid name '${collectionName}'`
+            }
+        }
+
+        if (!collectionNameMatch[2]) {
+            return {
+                success: false, errorCode: api.UpdateSchemaError_v0.SCHEMA_NOT_ALLOWED,
+                errorText: `Cannot create non-namespaced collection '${collectionName}'`
+            }
+        }
+
+        if (collectionNameMatch[1] !== options.identifiedApp.identifier) {
+            return {
+                success: false, errorCode: api.UpdateSchemaError_v0.SCHEMA_NOT_ALLOWED,
+                errorText: `Cannot created collection '${collectionNameMatch[2]}' in app namespace '${collectionNameMatch[1]}'`
+            }
+        }
+    }
+    return { success: true }
 }

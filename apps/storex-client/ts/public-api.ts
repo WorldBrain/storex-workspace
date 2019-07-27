@@ -1,4 +1,3 @@
-import { CollectionDefinitionMap } from '@worldbrain/storex/lib/types'
 import { AppSchema } from './types/apps';
 
 export interface StorexClientAPI_v0 {
@@ -32,7 +31,7 @@ export interface StorexClientAPI_v0 {
 export type RegisterAppResult_v0 = { success : false, errorCode : RegisterAppError_v0, errorText : string } | { success : true, accessToken : string }
 
 export enum RegisterAppError_v0 {
-    APP_ALREADY_EXISTS = 0
+    APP_ALREADY_EXISTS = 1
 }
 
 export interface IdentifyAppOptions_v0 {
@@ -40,19 +39,21 @@ export interface IdentifyAppOptions_v0 {
     accessToken : string
 }
 
-export type IdentifyAppResult_v0 = { success : true } | { success : false, errorCode: IdentifyAppError_v0 }
+export type IdentifyAppResult_v0 = { success : true } | { success : false, errorCode: IdentifyAppError_v0, errorText : string }
 
 export enum IdentifyAppError_v0 {
-    INVALID_ACCESS_TOKEN = 0,
-    DUPLICATE_IDENTFICATION = 1
+    INVALID_ACCESS_TOKEN = 1,
+    DUPLICATE_IDENTFICATION = 2
 }
 
 export interface UpdateSchemaOptions_v0 {
     schema : AppSchema
 }
 
-export type UpdateSchemaResult_v0 = { success: true } | { success: false, errorCode: UpdateSchemaError_v0 }
+export type UpdateSchemaResult_v0 = { success: true } | { success: false, errorCode: UpdateSchemaError_v0, errorText : string }
 
 export enum UpdateSchemaError_v0 {
-    NOT_ALLOWED = 0
+    BAD_REQUEST = 1,
+    NOT_ALLOWED = 2,
+    SCHEMA_NOT_ALLOWED = 3,
 }
