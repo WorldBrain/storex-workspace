@@ -1,8 +1,8 @@
 import { DexieStorageBackend } from '@worldbrain/storex-backend-dexie'
 import inMemory from '@worldbrain/storex-backend-dexie/lib/in-memory'
-import { Application } from "../application";
-import { DevelopmentAccessTokenManager } from "../access-tokens";
-import { sequentialTokenGenerator } from "../access-tokens.tests";
+import { Application } from "../../application";
+import { DevelopmentAccessTokenManager } from "../../access-tokens";
+import { sequentialTokenGenerator } from "../../access-tokens.tests";
 import { StorageBackend } from '@worldbrain/storex';
 
 export function makeAPITestFactory() {
