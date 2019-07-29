@@ -82,7 +82,7 @@ export class Session implements api.StorexClientAPI_v0 {
 }
 
 export async function checkAppSchema(schema : AppSchema, options : { identifiedApp : IdentifiedApp }) : Promise<api.UpdateSchemaResult_v0> {
-    for (const [collectionName] of Object.entries(schema.collectionDefinitions)) {
+    for (const [collectionName] of Object.entries(schema.collectionDefinitions || {})) {
         const collectionNameMatch = /^([a-zA-Z]+)(?:\:([a-zA-Z]+))?$/.exec(collectionName)
         if (!collectionNameMatch) {
             return {
