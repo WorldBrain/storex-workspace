@@ -8,7 +8,7 @@
     "show-unreleased-changes": "cd packages/$package && git diff master develop",
     "update-packages": "git submodule update --remote",
     "lerna": "lerna",
-    "test": "yarn lerna run test",
+    "test": "yarn lerna run test --stream",
     "test:watch": "lerna run --parallel --stream test:watch -- --colors",
     "prepare:watch": "lerna run --parallel --stream prepare:watch"
   },

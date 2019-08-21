@@ -45,10 +45,9 @@
 	path = packages/@worldbrain/storex-backend-firestore
 	url = git@github.com:WorldBrain/storex-backend-firestore
         branch = master
-[submodule "apps/storex-frontend-boilerplate"]
-	path = apps/storex-frontend-boilerplate
-	url = git@github.com:WorldBrain/storex-frontend-boilerplate
-        branch = master
+[submodule "apps/storex-hub"]
+	path = apps/storex-hub
+	url = git@github.com:WorldBrain/storex-hub
 [submodule "packages/@worldbrain/storex-backend-typeorm"]
 	path = packages/@worldbrain/storex-backend-typeorm
 	url = git@github.com:WorldBrain/storex-backend-typeorm.git
