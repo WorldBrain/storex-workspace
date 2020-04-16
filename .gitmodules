@@ -56,3 +56,33 @@
 	path = packages/simple-signalling
 	url = git@github.com:WorldBrain/simple-signalling.git
 	branch = master
+[submodule "packages/@worldbrain/storex-middleware-change-watcher"]
+	path = packages/@worldbrain/storex-middleware-change-watcher
+	url = git@github.com:WorldBrain/storex-middleware-change-watcher.git
+[submodule "apps/storex-hub-gui-nwjs"]
+	path = apps/storex-hub-gui-nwjs
+	url = git@github.com:WorldBrain/storex-hub-gui-nwjs.git
+[submodule "packages/@worldbrain/storex-typescript-generation"]
+	path = packages/@worldbrain/storex-typescript-generation
+	url = git@github.com:WorldBrain/storex-typescript-generation.git
+[submodule "packages/@worldbrain/memex-storage"]
+	path = packages/@worldbrain/memex-storage
+	url = git@github.com:WorldBrain/memex-storage.git
+[submodule "packages/@worldbrain/memex-url-utils"]
+	path = packages/@worldbrain/memex-url-utils
+	url = git@github.com:WorldBrain/memex-url-utils.git
+[submodule "packages/@worldbrain/memex-storex-hub"]
+	path = packages/@worldbrain/memex-storex-hub
+	url = git@github.com:WorldBrain/memex-storex-hub.git
+[submodule "apps/storex-hub-demo-memex-gist-sharer"]
+	path = apps/storex-hub-demo-memex-gist-sharer
+	url = git@github.com:WorldBrain/storex-hub-demo-memex-gist-sharer.git
+[submodule "apps/storex-hub-integration-memex-arweave"]
+	path = apps/storex-hub-integration-memex-arweave
+	url = git@github.com:WorldBrain/storex-hub-integration-memex-arweave.git
+[submodule "apps/storex-hub-interfaces"]
+	path = apps/storex-hub-interfaces
+	url = git@github.com:WorldBrain/storex-hub-interfaces.git
+[submodule "apps/storex-hub-plugin-internal-selftest"]
+	path = apps/storex-hub-plugin-internal-selftest
+	url = git@github.com:WorldBrain/storex-hub-plugin-internal-selftest.git
