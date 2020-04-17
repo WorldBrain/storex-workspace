@@ -50,7 +50,7 @@
 	url = git@github.com:WorldBrain/storex-hub
 [submodule "apps/storex-frontend-boilerplate"]
 	path = apps/storex-frontend-boilerplate
-	url = git@github.com:WorldBrain/apps/storex-frontend-boilerplate
+	url = git@github.com:WorldBrain/storex-frontend-boilerplate
 [submodule "packages/@worldbrain/storex-backend-typeorm"]
 	path = packages/@worldbrain/storex-backend-typeorm
 	url = git@github.com:WorldBrain/storex-backend-typeorm.git
