@@ -86,6 +86,3 @@
 [submodule "apps/storex-hub-interfaces"]
 	path = apps/storex-hub-interfaces
 	url = git@github.com:WorldBrain/storex-hub-interfaces.git
-[submodule "apps/storex-hub-plugin-internal-selftest"]
-	path = apps/storex-hub-plugin-internal-selftest
-	url = git@github.com:WorldBrain/storex-hub-plugin-internal-selftest.git
